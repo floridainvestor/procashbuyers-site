@@ -249,7 +249,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .proof-header p { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; max-width: 580px; margin: 0 auto; }
 
     .case-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media(min-width: 700px) { .case-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media(min-width: 700px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width: 1150px) { .case-grid { grid-template-columns: repeat(4, 1fr); } }
 
     .case-card {
       background: var(--bg-white); border: 1px solid var(--border); border-radius: 16px;
@@ -731,9 +732,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <button class="case-proof-btn" onclick="openM('m3')">📄 View Redacted HUD</button>
         </div>
+
+        <div class="case-card">
+          <div class="case-top">
+            <div class="case-tags"><span class="case-tag">Mobile Home</span><span class="case-tag">Seller Financing</span><span class="case-tag">As-Is</span></div>
+            <div class="case-hed">"They wanted full price, not a cash discount."</div>
+            <dl class="case-body">
+              <dt>Situation</dt><dd>1959 mobile home on its own land. Too old for any lender, which caps what a cash sale can pay.</dd>
+              <dt>What we did</dt><dd>Paid the full $100,000 price — $5,000 down and $95,000 carried by the seller at 0% interest.</dd>
+              <dt>Result</dt><dd>Full price instead of a cash discount, plus $500 a month secured by the property.</dd>
+            </dl>
+          </div>
+          <button class="case-proof-btn" onclick="openM('m4')">📄 View Redacted HUD</button>
+        </div>
       </div>
 
-      <p class="vault-note">📁 Full redacted closing statements available on request. Every deal is attorney-closed.</p>
+      <p class="vault-note">📁 Full redacted closing statements available on request. Three of these closed through a Florida real estate attorney; the seller-financed purchase closed directly between the two parties.</p>
     </div>
   </section>
 
@@ -841,6 +855,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="modal-sub">Subject-to (mortgage takeover). "Existing Mortgage" matches the sale price — we took over the loan.</div>
       <img src="https://storage.googleapis.com/msgsndr/KTrLkftu63ir51NcLOfP/media/698b7ae07f6dcf06cbd36720.png" alt="Redacted HUD - Late Payments" class="modal-img" loading="lazy" />
       <p class="modal-note">Personal information redacted. US Bank mortgage taken over. Seller brought $0 to closing. Attorney-closed.</p>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="m4" onclick="closeM(event,'m4')">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-x" onclick="shutM('m4')">&#10005;</button>
+      <div class="modal-hed">Seller-Financed Mobile Home &mdash; Redacted Closing Statement</div>
+      <div class="modal-sub">Full price, paid over time. Look for "Balance Financed by Note: $95,000.00" near the top.</div>
+      <img src="/assets/redacted-closing-seller-financed-mobile-home.jpg" alt="Redacted closing statement - seller-financed mobile home" class="modal-img" loading="lazy" />
+      <p class="modal-note">Personal information redacted. Purchase price $100,000: $5,000 down, $95,000 seller-financed at 0% interest, $500/month. Duval County. Closed directly between the two parties &mdash; no title or settlement fees.</p>
     </div>
   </div>
 
