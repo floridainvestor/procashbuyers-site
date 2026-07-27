@@ -664,6 +664,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="calc-result-label">Estimated Cash Offer Range</div>
           <div class="calc-result-range" id="calc-range">Enter your home value to see a range</div>
           <div class="calc-result-detail" id="calc-detail"></div>
+
+          <div class="calc-result-label" style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.18);">If You Listed With an Agent Instead</div>
+          <div class="calc-result-range" id="calc-list-range" style="font-size:1.5rem;">Enter your home value to compare</div>
+          <div class="calc-result-detail" id="calc-list-detail"></div>
+
           <div class="calc-disclaimer">This is an estimate only, not a formal written offer. Your actual offer depends on condition, location, and comparable sales, confirmed after a walkthrough.</div>
           <a href="#triage-form" class="btn-primary" style="display:block;text-decoration:none;text-align:center;margin-top:14px;">Get My Written Offer →</a>
         </div>
@@ -805,6 +810,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <p>Jerel has been buying houses in Northeast Florida since 1997.</p>
       <p style="font-size:0.8rem;margin-top:14px;opacity:0.85;">Situations we buy: <a href="/behind-on-payments" style="color:#cbd5e1;">Behind on Payments</a> · <a href="/divorce" style="color:#cbd5e1;">Divorce</a> · <a href="/inherited-property" style="color:#cbd5e1;">Inherited Property</a> · <a href="/pre-foreclosure" style="color:#cbd5e1;">Pre-Foreclosure</a> · <a href="/relocation" style="color:#cbd5e1;">Relocation</a> · <a href="/ugly-repairs" style="color:#cbd5e1;">Needs Repairs</a> · <a href="/code-violations" style="color:#cbd5e1;">Code Violations</a> · <a href="/problem-tenants" style="color:#cbd5e1;">Tenants in Place</a> · <a href="/avoid-foreclosure-jacksonville" style="color:#cbd5e1;">Avoid Foreclosure</a> · <a href="/" style="color:#cbd5e1;">Home</a></p>
       <p style="font-size:0.8rem;margin-top:6px;opacity:0.85;">We buy houses in: <a href="/we-buy-houses-jacksonville-fl" style="color:#cbd5e1;">Jacksonville</a> · <a href="/we-buy-houses-fernandina-beach-fl" style="color:#cbd5e1;">Fernandina Beach</a> · <a href="/we-buy-houses-yulee-fl" style="color:#cbd5e1;">Yulee</a> · <a href="/we-buy-houses-orange-park-fl" style="color:#cbd5e1;">Orange Park</a> · <a href="/we-buy-houses-st-augustine-fl" style="color:#cbd5e1;">St. Augustine</a> · <a href="/we-buy-houses-palatka-fl" style="color:#cbd5e1;">Palatka</a></p>
+      <p style="font-size:0.8rem;margin-top:14px;opacity:0.85;">What we buy: <a href="/we-buy-houses-jacksonville-fl/" style="color:#cbd5e1;">Houses</a> &middot; <a href="/we-buy-mobile-homes-jacksonville-fl/" style="color:#cbd5e1;">Mobile Homes</a> &middot; <a href="/we-buy-small-mobile-home-parks-north-florida/" style="color:#cbd5e1;">Mobile Home Parks</a> &middot; <a href="/we-buy-small-apartment-buildings-jacksonville-fl/" style="color:#cbd5e1;">Small Apartment Buildings</a></p>
+      <p style="font-size:0.8rem;margin-top:14px;opacity:0.85;">Situations: <a href="/behind-on-payments/" style="color:#cbd5e1;">Behind on Payments</a> &middot; <a href="/pre-foreclosure/" style="color:#cbd5e1;">Pre-Foreclosure</a> &middot; <a href="/avoid-foreclosure-jacksonville/" style="color:#cbd5e1;">Avoid Foreclosure</a> &middot; <a href="/hoa-foreclosure/" style="color:#cbd5e1;">HOA Foreclosure</a> &middot; <a href="/inherited-property/" style="color:#cbd5e1;">Inherited Property</a> &middot; <a href="/probate-property-sale/" style="color:#cbd5e1;">Probate Sale</a> &middot; <a href="/divorce/" style="color:#cbd5e1;">Divorce</a> &middot; <a href="/problem-tenants/" style="color:#cbd5e1;">Problem Tenants</a> &middot; <a href="/ugly-repairs/" style="color:#cbd5e1;">Needs Repairs</a> &middot; <a href="/code-violations/" style="color:#cbd5e1;">Code Violations</a> &middot; <a href="/tax-deed-surplus/" style="color:#cbd5e1;">Tax Deed Surplus</a> &middot; <a href="/relocation/" style="color:#cbd5e1;">Relocation</a></p>
+      <p style="font-size:0.8rem;margin-top:14px;opacity:0.85;">Before you decide: <a href="/how-it-works/" style="color:#cbd5e1;">How It Works</a> &middot; <a href="/cash-offer-estimator/" style="color:#cbd5e1;">Cash Offer Estimator</a> &middot; <a href="/cash-offer-vs-listing-with-agent/" style="color:#cbd5e1;">Cash Offer vs. Listing</a> &middot; <a href="/cash-vs-terms/" style="color:#cbd5e1;">Cash vs. Terms</a> &middot; <a href="/real-estate-closing-case-studies/" style="color:#cbd5e1;">Real Closings</a> &middot; <a href="/about/" style="color:#cbd5e1;">About Pro Cash Buyers</a></p>
+      <p style="font-size:0.8rem;margin-top:14px;opacity:0.85;">Areas we buy: <a href="/we-buy-houses-jacksonville-fl/" style="color:#cbd5e1;">Jacksonville</a> &middot; <a href="/we-buy-houses-orange-park-fl/" style="color:#cbd5e1;">Orange Park</a> &middot; <a href="/we-buy-houses-fernandina-beach-fl/" style="color:#cbd5e1;">Fernandina Beach</a> &middot; <a href="/we-buy-houses-yulee-fl/" style="color:#cbd5e1;">Yulee</a> &middot; <a href="/we-buy-houses-st-augustine-fl/" style="color:#cbd5e1;">St. Augustine</a> &middot; <a href="/we-buy-houses-palatka-fl/" style="color:#cbd5e1;">Palatka</a></p>
       <p class="ftr-legal">Private investors. Not licensed agents. We show you the net — even if listing pays more.</p>
     </div>
   </footer>
@@ -992,9 +1001,14 @@ fetch(WEBHOOK_URL, {
       var rangeEl = document.getElementById('calc-range');
       var detailEl = document.getElementById('calc-detail');
 
+      var listRangeEl = document.getElementById('calc-list-range');
+      var listDetailEl = document.getElementById('calc-list-detail');
+
       if (value <= 0) {
         rangeEl.textContent = 'Enter your home value to see a range';
         detailEl.textContent = '';
+        listRangeEl.textContent = 'Enter your home value to compare';
+        listDetailEl.textContent = '';
         return;
       }
 
@@ -1006,6 +1020,19 @@ fetch(WEBHOOK_URL, {
       var fmt = function(n) { return '$' + n.toLocaleString('en-US'); };
       rangeEl.textContent = fmt(low) + ' – ' + fmt(high);
       detailEl.textContent = 'Based on ' + fmt(value) + ' repaired value, minus repair costs and mortgage payoff.';
+
+      // Listing net: sale price minus commission, seller closing costs, the repairs a
+      // financed buyer's lender would require, and the payoff. Low end assumes a 5%
+      // price concession after inspection; high end assumes it sells at full value.
+      var lLow  = Math.round((value * 0.95) - (value * 0.95 * 0.06) - (value * 0.95 * 0.02) - repairs - payoff);
+      var lHigh = Math.round(value - (value * 0.06) - (value * 0.02) - repairs - payoff);
+      if (lLow < 0) lLow = 0;
+      if (lHigh < lLow) lHigh = lLow;
+
+      listRangeEl.textContent = fmt(lLow) + ' – ' + fmt(lHigh);
+      listDetailEl.textContent = 'After a 6% commission, about 2% in seller closing costs, the same repair cost '
+        + '(a lender will require them), and your payoff. Does not include 60–90 days of mortgage, '
+        + 'taxes, insurance, and utilities while it sits on the market.';
     }
 
     function togFaq(btn) { btn.closest('.faq-item').classList.toggle('open'); }
