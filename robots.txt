@@ -1,0 +1,33 @@
+# Pro Cash Buyers — robots.txt (paste-ready)
+# Generated 2026-06-10. Purpose: explicitly allow AI crawlers AND declare the sitemap.
+# The live site currently serves an EMPTY robots.txt (HTTP 000), so no sitemap is
+# declared to crawlers — that is the real loss (default access is already "allow").
+#
+# INSTALL: GHL funnels often will NOT let you upload a custom root /robots.txt.
+#   - If GHL DOES allow a root file edit → paste this verbatim at https://procashbuyers.com/robots.txt
+#   - If GHL does NOT → the explicit-allow lines are moot (default is allow anyway), but you still
+#     need the sitemap discovered: submit https://procashbuyers.com/sitemap.xml directly in
+#     Google Search Console, and add new URLs to the GHL-generated sitemap as pages go live.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://procashbuyers.com/sitemap.xml
