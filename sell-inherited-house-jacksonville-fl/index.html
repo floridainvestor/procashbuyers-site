@@ -466,6 +466,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7F2XT4H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
   <!-- SCARCITY BAR (Updated) -->
 
@@ -1062,5 +1067,47 @@ fetch(WEBHOOK_URL, {
     updateProgress(33);
   </script>
 
+<!-- PCB tracking: cookie notice + call-click event -->
+<style>
+#pcb-cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0f172a;color:#fff;
+padding:14px 18px;font-family:system-ui,-apple-system,sans-serif;font-size:0.85rem;
+display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;
+box-shadow:0 -2px 12px rgba(0,0,0,.2)}
+#pcb-cookie-bar a{color:#8ce99a;text-decoration:underline}
+#pcb-cookie-bar button{background:#22c55e;color:#0f172a;border:none;border-radius:6px;
+padding:9px 18px;font-weight:700;cursor:pointer;font-size:0.85rem}
+#pcb-cookie-bar button:hover{background:#16a34a}
+</style>
+<div id="pcb-cookie-bar" style="display:none">
+  <span>We use cookies to understand site traffic and improve your experience. See our
+  <a href="/privacy-policy/">Privacy Policy</a>.</span>
+  <button id="pcb-cookie-ok">Got it</button>
+</div>
+<script>
+(function(){
+  try{
+    if(!localStorage.getItem('pcb_cookie_ack')){
+      document.addEventListener('DOMContentLoaded', function(){
+        var bar = document.getElementById('pcb-cookie-bar');
+        if(bar) bar.style.display = 'flex';
+      });
+    }
+    document.addEventListener('click', function(e){
+      if(e.target && e.target.id === 'pcb-cookie-ok'){
+        localStorage.setItem('pcb_cookie_ack', '1');
+        document.getElementById('pcb-cookie-bar').style.display = 'none';
+      }
+    });
+  }catch(err){}
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if(a && window.dataLayer){
+      window.dataLayer.push({event:'phone_click', phone_number:a.getAttribute('href').replace('tel:','')});
+    }
+  });
+})();
+</script>
+<!-- End PCB tracking -->
 </body>
 </html>
